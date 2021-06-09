@@ -123,7 +123,7 @@
     If pname:{accessMaskName} includes ename:VK_ACCESS_2_HOST_WRITE_BIT_KHR,
     pname:{stageMaskName} must: include
     ename:VK_PIPELINE_STAGE_2_HOST_BIT_KHR
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * [[VUID-{refpage}-{accessMaskName}-03918]]
     If pname:{accessMaskName} includes
     ename:VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT,
@@ -131,7 +131,7 @@ ifdef::VK_EXT_conditional_rendering[]
     ename:VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT,
     ename:VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT_KHR, or
     ename:VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT_KHR
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_fragment_density_map[]
   * [[VUID-{refpage}-{accessMaskName}-03919]]
     If pname:{accessMaskName} includes

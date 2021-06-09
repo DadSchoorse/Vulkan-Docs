@@ -784,7 +784,7 @@ ename:VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT not set.
 After the implicit reset, pname:commandBuffer is moved to the
 <<commandbuffers-lifecycle, recording state>>.
 
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 [open,refpage='VkCommandBufferInheritanceConditionalRenderingInfoEXT',desc='Structure specifying command buffer inheritance information',type='structs']
 --
 If the pname:pNext chain of slink:VkCommandBufferInheritanceInfo includes a
@@ -816,14 +816,25 @@ pname:conditionalRenderingEnable is ename:VK_FALSE.
 .Valid Usage
 ****
   * [[VUID-VkCommandBufferInheritanceConditionalRenderingInfoEXT-conditionalRenderingEnable-01977]]
+ifdef::VK_EXT_conditional_rendering+VK_EXT_conditional_rendering64[]
+    If neither the <<features-inheritedConditionalRendering, inherited conditional
+    rendering>> feature nor the <<features-inheritedConditionalRendering64, inherited
+    conditional rendering 64>>    is enabled, pname:conditionalRenderingEnable
+endif::VK_EXT_conditional_rendering+VK_EXT_conditional_rendering64[]
+ifndef::VK_EXT_conditional_rendering64[]
     If the <<features-inheritedConditionalRendering, inherited conditional
     rendering>> feature is not enabled, pname:conditionalRenderingEnable
+endif::VK_EXT_conditional_rendering64[]
+ifndef::VK_EXT_conditional_rendering[]
+    If the <<features-inheritedConditionalRendering64, inherited conditional
+    rendering 64>> feature is not enabled, pname:conditionalRenderingEnable
+endif::VK_EXT_conditional_rendering[]
     must: be ename:VK_FALSE
 ****
 
 include::{generated}/validity/structs/VkCommandBufferInheritanceConditionalRenderingInfoEXT.txt[]
 --
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 
 ifdef::VK_QCOM_render_pass_transform[]
 [open,refpage='VkCommandBufferInheritanceRenderPassTransformInfoQCOM',desc='Structure describing transformed render pass parameters command buffer',type='structs']
@@ -1034,11 +1045,11 @@ executable state>>.
   * [[VUID-vkEndCommandBuffer-commandBuffer-00061]]
     All queries made <<queries-operation-active,active>> during the
     recording of pname:commandBuffer must: have been made inactive
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * [[VUID-vkEndCommandBuffer-None-01978]]
     Conditional rendering must: not be
     <<active-conditional-rendering,active>>
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_debug_utils[]
   * [[VUID-vkEndCommandBuffer-commandBuffer-01815]]
     If pname:commandBuffer is a secondary command buffer, there must: not be

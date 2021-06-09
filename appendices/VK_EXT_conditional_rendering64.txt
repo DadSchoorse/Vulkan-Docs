@@ -1,0 +1,38 @@
+// Copyright 2021 Georg Lehmann
+//
+// SPDX-License-Identifier: CC-BY-4.0
+
+include::{generated}/meta/{refprefix}VK_EXT_conditional_rendering64.txt[]
+
+=== Other Extension Metadata
+
+*Last Modified Date*::
+    2021-06-09
+*IP Status*::
+    No known IP claims.
+*Contributors*::
+  - Georg Lehmann
+
+=== Description
+
+This extension allows the execution of one or more rendering commands to be
+conditional on a 64-bit value in buffer memory, contrary to
+VK_EXT_conditional_rendering which only allows 32-bit values.
+
+include::{generated}/interfaces/VK_EXT_conditional_rendering64.txt[]
+
+=== Issues
+
+1) Should VK_EXT_conditional_rendering64 require VK_EXT_conditional_rendering?
+
+*RESOLVED*: No, some hardware might just support 64-bit predicates.
+
+
+=== Examples
+
+None.
+
+=== Version History
+
+  * Revision 1, 2021-06-09 (Georg Lehmann)
+    - First Version

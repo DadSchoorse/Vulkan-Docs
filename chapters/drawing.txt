@@ -1360,7 +1360,7 @@ include::{generated}/validity/protos/vkCmdDrawIndirectByteCountEXT.txt[]
 endif::VK_EXT_transform_feedback[]
 
 
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 [[drawing-conditional-rendering]]
 == Conditional Rendering
 
@@ -1430,7 +1430,7 @@ include::{generated}/api/structs/VkConditionalRenderingBeginInfoEXT.txt[]
   * pname:flags is a bitmask of tlink:VkConditionalRenderingFlagsEXT
     specifying the behavior of conditional rendering.
 
-If the 32-bit value at pname:offset in pname:buffer memory is zero, then the
+If the predicate value at pname:offset in pname:buffer memory is zero, then the
 rendering commands are discarded, otherwise they are executed as normal.
 If the value of the predicate in buffer memory changes while conditional
 rendering is active, the rendering commands may: be discarded in an
@@ -1449,9 +1449,11 @@ command.
     ename:VK_BUFFER_USAGE_CONDITIONAL_RENDERING_BIT_EXT bit set
   * [[VUID-VkConditionalRenderingBeginInfoEXT-offset-01983]]
     pname:offset must: be less than the size of pname:buffer by at least 32
-    bits
+    bits when using a 32-bit predicate and at least 64 bits when using a
+    64-bit predicate
   * [[VUID-VkConditionalRenderingBeginInfoEXT-offset-01984]]
-    pname:offset must: be a multiple of 4
+    pname:offset must: be a multiple of 4 when using a 32-bit predicate
+    and a multiple of 8 when using a 64-bit predicate
 ****
 
 include::{generated}/validity/structs/VkConditionalRenderingBeginInfoEXT.txt[]
@@ -1468,9 +1470,14 @@ include::{generated}/api/enums/VkConditionalRenderingFlagBitsEXT.txt[]
 
   * ename:VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT specifies the condition
     used to determine whether to discard rendering commands or not.
-    That is, if the 32-bit predicate read from pname:buffer memory at
+    That is, if the predicate read from pname:buffer memory at
     pname:offset is zero, the rendering commands are not discarded, and if
     non zero, then they are discarded.
+ifdef::VK_EXT_conditional_rendering64[]
+  * ename:VK_CONDITIONAL_RENDERING_64_BIT_PREDICATE_BIT_EXT specifies that
+    a 64-bit predicate will be read from pname:buffer memory at
+    pname:offset instead of a 32-bit predicate is checked for zero.
+endif::VK_EXT_conditional_rendering64[]
 --
 
 [open,refpage='VkConditionalRenderingFlagsEXT',desc='Bitmask of VkConditionalRenderingFlagBitsEXT',type='flags']
@@ -1508,7 +1515,7 @@ Once ended, conditional rendering becomes inactive.
 
 include::{generated}/validity/protos/vkCmdEndConditionalRenderingEXT.txt[]
 --
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 
 ifdef::VK_NV_mesh_shader[]
 include::VK_NV_mesh_shader/drawing.txt[]

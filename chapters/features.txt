@@ -4186,6 +4186,33 @@ include::{generated}/validity/structs/VkPhysicalDeviceProvokingVertexFeaturesEXT
 --
 endif::VK_EXT_provoking_vertex[]
 
+ifdef::VK_EXT_conditional_rendering64[]
+[open,refpage='VkPhysicalDeviceConditionalRendering64FeaturesEXT',desc='Structure describing if a secondary command buffer can be executed if 64-bit conditional rendering is active in the primary command buffer',type='structs']
+--
+The sname:VkPhysicalDeviceConditionalRendering64FeaturesEXT structure is
+defined as:
+
+include::{generated}/api/structs/VkPhysicalDeviceConditionalRendering64FeaturesEXT.txt[]
+
+This structure describes the following features:
+
+  * pname:sType is the type of this structure.
+  * pname:pNext is `NULL` or a pointer to a structure extending this
+    structure.
+  * [[features-conditionalRendering64]] pname:conditionalRendering64 specifies
+    whether 64-bit conditional rendering is supported.
+  * [[features-inheritedConditionalRendering64]]
+    pname:inheritedConditionalRendering64 specifies whether a secondary
+    command buffer can: be executed while 64-bit conditional rendering is active in
+    the primary command buffer.
+
+:refpage: VkPhysicalDeviceConditionalRendering64FeaturesEXT
+include::{chapters}/features.txt[tag=features]
+
+include::{generated}/validity/structs/VkPhysicalDeviceConditionalRendering64FeaturesEXT.txt[]
+--
+endif::VK_EXT_conditional_rendering64[]
+
 
 [[features-requirements]]
 == Feature Requirements
@@ -4431,6 +4458,11 @@ endif::VK_EXT_transform_feedback[]
 ifdef::VK_EXT_conditional_rendering[]
   * <<features-conditionalRendering, pname:conditionalRendering>>, if the
     `<<VK_EXT_conditional_rendering>>` extension is supported.
+ifdef::VK_EXT_conditional_rendering64[]
+  * <<features-inheritedConditionalRendering, pname:inheritedConditionalRendering>>, if the
+    `<<VK_EXT_conditional_rendering>>` extension is supported and the
+    `<<features-inheritedConditionalRendering64, pname:inheritedConditionalRendering64>>` feature is supported.
+endif::VK_EXT_conditional_rendering64[]
 endif::VK_EXT_conditional_rendering[]
 ifdef::VK_EXT_vertex_attribute_divisor[]
   * <<features-vertexAttributeInstanceRateDivisor,
@@ -4547,5 +4579,14 @@ ifdef::VK_KHR_shader_subgroup_uniform_control_flow[]
     `<<VK_KHR_shader_subgroup_uniform_control_flow>>` extension is
     supported.
 endif::VK_KHR_shader_subgroup_uniform_control_flow[]
+ifdef::VK_EXT_conditional_rendering64[]
+  * <<features-conditionalRendering64, pname:conditionalRendering64>>, if the
+    `<<VK_EXT_conditional_rendering64>>` extension is supported.
+ifdef::VK_EXT_conditional_rendering[]
+  * <<features-inheritedConditionalRendering64, pname:inheritedConditionalRendering64>>, if the
+    `<<VK_EXT_conditional_rendering64>>` extension is supported and the
+    `<<features-inheritedConditionalRendering, pname:inheritedConditionalRendering>>` feature is supported.
+endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering64[]
 
 All other features defined in the Specification are optional:.

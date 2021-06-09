@@ -5904,6 +5904,12 @@ typedef void <name>CAMetalLayer</name>;
             <member><type>int64_t</type> <name>renderMajor</name></member>
             <member><type>int64_t</type> <name>renderMinor</name></member>
         </type>
+        <type category="struct" name="VkPhysicalDeviceConditionalRendering64FeaturesEXT" structextends="VkPhysicalDeviceFeatures2,VkDeviceCreateInfo">
+            <member values="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_64_FEATURES_EXT"><type>VkStructureType</type> <name>sType</name></member>
+            <member optional="true"><type>void</type>*        <name>pNext</name></member>
+            <member><type>VkBool32</type>                     <name>conditionalRendering64</name></member>
+            <member><type>VkBool32</type>                     <name>inheritedConditionalRendering64</name></member>
+        </type>
     </types>
     <comment>Vulkan enumerant (token) definitions</comment>
 
@@ -16375,6 +16381,27 @@ typedef void <name>CAMetalLayer</name>;
             <require>
                 <enum value="0"                                         name="VK_ARM_EXTENSION_416_SPEC_VERSION"/>
                 <enum value="&quot;VK_ARM_extension_416&quot;"          name="VK_ARM_EXTENSION_416_EXTENSION_NAME"/>
+            </require>
+        </extension>
+        <extension name="VK_EXT_conditional_rendering64" number="417" type="device" author="MESA" contact="Georg Lehmann @DadSchoorse" supported="vulkan">
+            <require>
+                <enum value="0"                                          name="VK_EXT_CONDITIONAL_RENDERING_64_SPEC_VERSION"/>
+                <enum value="&quot;VK_EXT_conditional_rendering64&quot;" name="VK_EXT_CONDITIONAL_RENDERING_64_EXTENSION_NAME"/>
+                <enum offset="0" extends="VkStructureType"                  name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_64_FEATURES_EXT"/>
+                <enum offset="1" extends="VkStructureType" extnumber="82"   name="VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT"/>
+                <enum offset="0" extends="VkStructureType" extnumber="82"   name="VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT"/>
+                <enum offset="2" extends="VkStructureType" extnumber="82"   name="VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT"/>
+                <type name="VkConditionalRenderingFlagsEXT"/>
+                <type name="VkConditionalRenderingFlagBitsEXT"/>
+                <enum bitpos="20" extends="VkAccessFlagBits"                    name="VK_ACCESS_CONDITIONAL_RENDERING_READ_BIT_EXT"  comment="read access flag for reading conditional rendering predicate"/>
+                <enum bitpos="9"  extends="VkBufferUsageFlagBits"               name="VK_BUFFER_USAGE_CONDITIONAL_RENDERING_BIT_EXT" comment="Specifies the buffer can be used as predicate in conditional rendering"/>
+                <enum bitpos="18" extends="VkPipelineStageFlagBits"             name="VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT" comment="A pipeline stage for conditional rendering predicate fetch"/>
+                <enum bitpos="1" extends="VkConditionalRenderingFlagBitsEXT"    name="VK_CONDITIONAL_RENDERING_64_BIT_PREDICATE_BIT_EXT" comment="Use a 64-bit predicate instead of the default 32"/>
+                <command name="vkCmdBeginConditionalRenderingEXT"/>
+                <command name="vkCmdEndConditionalRenderingEXT"/>
+                <type name="VkConditionalRenderingBeginInfoEXT"/>
+                <type name="VkPhysicalDeviceConditionalRendering64FeaturesEXT"/>
+                <type name="VkCommandBufferInheritanceConditionalRenderingInfoEXT"/>
             </require>
         </extension>
     </extensions>

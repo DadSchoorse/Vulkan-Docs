@@ -15,10 +15,29 @@
     ename:VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT or
     ename:VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT
 ifdef::VK_EXT_conditional_rendering[]
-  * [[VUID-{refpage}-{stageMaskName}-04092]]
+ifdef::VK_EXT_conditional_rendering64[]
+  * [[VUID-{refpage}-{stageMaskName}-03931]]
+    If neither the <<features-conditionalRendering,conditional rendering>> feature
+    nor the <<features-conditionalRendering64,conditional rendering64>> feature
+    is enabled, pname:{stageMaskName} must: not contain
+    ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
+endif::VK_EXT_conditional_rendering64[]
+endif::VK_EXT_conditional_rendering[]
+ifndef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering64[]
+  * [[VUID-{refpage}-{stageMaskName}-03931]]
+    If the <<features-conditionalRendering64,conditional rendering64>> feature
+    is not enabled, pname:{stageMaskName} must: not contain
+    ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
+endif::VK_EXT_conditional_rendering64[]
+endif::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering[]
+ifndef::VK_EXT_conditional_rendering64[]
+  * [[VUID-{refpage}-{stageMaskName}-03931]]
     If the <<features-conditionalRendering,conditional rendering>> feature
     is not enabled, pname:{stageMaskName} must: not contain
     ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
+endif::VK_EXT_conditional_rendering64[]
 endif::VK_EXT_conditional_rendering[]
 ifdef::VK_EXT_fragment_density_map[]
   * [[VUID-{refpage}-{stageMaskName}-04093]]

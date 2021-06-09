@@ -246,11 +246,11 @@ ifdef::VK_NV_device_generated_commands[]
     pname:sequencesIndexBuffer or pname:preprocessedBuffer member of
     sname:VkGeneratedCommandsInfoNV
 endif::VK_NV_device_generated_commands[]
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * ename:VK_BUFFER_USAGE_CONDITIONAL_RENDERING_BIT_EXT specifies that the
     buffer is suitable for passing as the pname:buffer parameter to
     flink:vkCmdBeginConditionalRenderingEXT.
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   * ename:VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_BUFFER_BIT_EXT specifies that
     the buffer is suitable for using for binding as a transform feedback

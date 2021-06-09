@@ -417,9 +417,9 @@ endif::VK_NV_mesh_shader[]
   ** ename:VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT_KHR
   ** ename:VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT_KHR
   ** ename:VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT_KHR
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   ** ename:VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   ** ename:VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT
 endif::VK_EXT_transform_feedback[]
@@ -431,11 +431,11 @@ ifdef::VK_EXT_fragment_density_map[]
 endif::VK_EXT_fragment_density_map[]
   * ename:VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT_KHR specifies all operations
     performed by all commands supported on the queue it is used with.
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * ename:VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT specifies the
     stage of the pipeline where the predicate of conditional rendering is
     consumed.
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   * ename:VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT specifies the stage
     of the pipeline where vertex attribute output values are written to the
@@ -629,9 +629,9 @@ endif::VK_NV_mesh_shader[]
   ** ename:VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT
   ** ename:VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT
   ** ename:VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   ** ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   ** ename:VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT
 endif::VK_EXT_transform_feedback[]
@@ -643,11 +643,11 @@ ifdef::VK_EXT_fragment_density_map[]
 endif::VK_EXT_fragment_density_map[]
   * ename:VK_PIPELINE_STAGE_ALL_COMMANDS_BIT specifies all operations
     performed by all commands supported on the queue it is used with.
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT specifies the
     stage of the pipeline where the predicate of conditional rendering is
     consumed.
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   * ename:VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT specifies the stage
     of the pipeline where vertex attribute output values are written to the
@@ -757,9 +757,9 @@ and <<devsandqueues-queues,Queues>>.
 |ename:VK_PIPELINE_STAGE_HOST_BIT                             | None required
 |ename:VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT                     | ename:VK_QUEUE_GRAPHICS_BIT
 |ename:VK_PIPELINE_STAGE_ALL_COMMANDS_BIT                     | None required
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 |ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT        | ename:VK_QUEUE_GRAPHICS_BIT or ename:VK_QUEUE_COMPUTE_BIT
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
 |ename:VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT           | ename:VK_QUEUE_GRAPHICS_BIT
 endif::VK_EXT_transform_feedback[]
@@ -888,14 +888,14 @@ ename:VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT:
   * ename:VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT
 endif::VK_EXT_fragment_density_map[]
 
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 The conditional rendering stage is formally part of both the graphics, and
 the compute pipeline.
 The pipeline stage where the predicate read happens has unspecified order
 relative to other stages of these pipelines:
 
   * ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 
 For the transfer pipeline, the following stages occur in this order:
 
@@ -1081,12 +1081,12 @@ endif::VK_VERSION_1_2,VK_KHR_depth_stencil_resolve[]
     on memory.
     Such access occurs in the ename:VK_PIPELINE_STAGE_2_HOST_BIT_KHR
     pipeline stage.
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * ename:VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT specifies read
     access to a predicate as part of conditional rendering.
     Such access occurs in the
     ename:VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT pipeline stage.
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   * ename:VK_ACCESS_2_TRANSFORM_FEEDBACK_WRITE_BIT_EXT specifies write
     access to a transform feedback buffer made when transform feedback is
@@ -1341,12 +1341,12 @@ endif::VK_VERSION_1_2,VK_KHR_depth_stencil_resolve[]
     on memory.
     Such access occurs in the ename:VK_PIPELINE_STAGE_HOST_BIT pipeline
     stage.
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
   * ename:VK_ACCESS_CONDITIONAL_RENDERING_READ_BIT_EXT specifies read access
     to a predicate as part of conditional rendering.
     Such access occurs in the
     ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT pipeline stage.
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_EXT_transform_feedback[]
   * ename:VK_ACCESS_TRANSFORM_FEEDBACK_WRITE_BIT_EXT specifies write access
     to a transform feedback buffer made when transform feedback is active.
@@ -1498,9 +1498,9 @@ ifdef::VK_NV_device_generated_commands[]
 |ename:VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV               | ename:VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV
 |ename:VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV              | ename:VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV
 endif::VK_NV_device_generated_commands[]
-ifdef::VK_EXT_conditional_rendering[]
+ifdef::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 |ename:VK_ACCESS_CONDITIONAL_RENDERING_READ_BIT_EXT           | ename:VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT
-endif::VK_EXT_conditional_rendering[]
+endif::VK_EXT_conditional_rendering,VK_EXT_conditional_rendering64[]
 ifdef::VK_KHR_fragment_shading_rate,VK_NV_shading_rate_image[]
 |ename:VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR | ename:VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR
 endif::VK_KHR_fragment_shading_rate,VK_NV_shading_rate_image[]
