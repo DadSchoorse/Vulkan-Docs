@@ -1430,14 +1430,23 @@ include::{generated}/api/structs/VkConditionalRenderingBeginInfoEXT.txt[]
   * pname:flags is a bitmask of tlink:VkConditionalRenderingFlagsEXT
     specifying the behavior of conditional rendering.
 
-If the 32-bit value at pname:offset in pname:buffer memory is zero, then the
+If the predicate value at pname:offset in pname:buffer memory is zero, then the
 rendering commands are discarded, otherwise they are executed as normal.
-If the value of the predicate in buffer memory changes while conditional
-rendering is active, the rendering commands may: be discarded in an
-implementation-dependent way.
+The default predicate size is 32-bit.
+ifdef::VK_EXT_conditional_rendering2[]
+ename:VK_CONDITIONAL_RENDERING_64_BIT_PREDICATE_BIT_EXT changes the size to
+64-bit.
+endif::VK_EXT_conditional_rendering2[]
+By default, if the value of the predicate in buffer memory changes while
+conditional rendering is active, the rendering commands may: be discarded
+in an implementation-dependent way.
 Some implementations may latch the value of the predicate upon beginning
 conditional rendering while others may read it before every rendering
 command.
+ifdef::VK_EXT_conditional_rendering2[]
+With ename:VK_CONDITIONAL_RENDERING_LATCHED_BIT_EXT the implementation must:
+latch the value of the predicate upon beginning conditional rendering.
+endif::VK_EXT_conditional_rendering2[]
 
 .Valid Usage
 ****
@@ -1448,10 +1457,10 @@ command.
     pname:buffer must: have been created with the
     ename:VK_BUFFER_USAGE_CONDITIONAL_RENDERING_BIT_EXT bit set
   * [[VUID-VkConditionalRenderingBeginInfoEXT-offset-01983]]
-    pname:offset must: be less than the size of pname:buffer by at least 32
-    bits
+    pname:offset must: be less than the size of pname:buffer by at least
+    the predicate width
   * [[VUID-VkConditionalRenderingBeginInfoEXT-offset-01984]]
-    pname:offset must: be a multiple of 4
+    pname:offset must: be a multiple of the predicate width in bytes
 ****
 
 include::{generated}/validity/structs/VkConditionalRenderingBeginInfoEXT.txt[]
@@ -1471,6 +1480,12 @@ include::{generated}/api/enums/VkConditionalRenderingFlagBitsEXT.txt[]
     That is, if the 32-bit predicate read from pname:buffer memory at
     pname:offset is zero, the rendering commands are not discarded, and if
     non zero, then they are discarded.
+ifdef::VK_EXT_conditional_rendering2[]
+  * ename:VK_CONDITIONAL_RENDERING_64_BIT_PREDICATE_BIT_EXT specifies that
+    a 64-bit predicate will be used instead of a 32-bit predicate
+  * ename:VK_CONDITIONAL_RENDERING_LATCHED_BIT_EXT specifies that the the value
+    of the predicate must: be latched upon beginning conditional rendering.
+endif::VK_EXT_conditional_rendering2[]
 --
 
 [open,refpage='VkConditionalRenderingFlagsEXT',desc='Bitmask of VkConditionalRenderingFlagBitsEXT',type='flags']

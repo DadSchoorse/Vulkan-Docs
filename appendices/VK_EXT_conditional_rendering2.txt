@@ -1,0 +1,32 @@
+// Copyright 2021 Georg Lehmann
+//
+// SPDX-License-Identifier: CC-BY-4.0
+
+include::{generated}/meta/{refprefix}VK_EXT_conditional_rendering2.txt[]
+
+=== Other Extension Metadata
+
+*Last Modified Date*::
+    2021-06-20
+*IP Status*::
+    No known IP claims.
+*Contributors*::
+  - Georg Lehmann
+
+=== Description
+
+This extension extends `<<VK_EXT_conditional_rendering>>` to also allow 64-bit
+predicates. Additionally it adds support for changing the predicate without any
+effect on the conditional rendering.
+
+include::{generated}/interfaces/VK_EXT_conditional_rendering2.txt[]
+
+=== Issues
+
+1) Does VK_CONDITIONAL_RENDERING_LATCHED_BIT_EXT need more synchronisation?
+
+
+=== Version History
+
+  * Revision 1, 2021-06-20 (Georg Lehmann)
+    - First Version

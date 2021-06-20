@@ -4186,6 +4186,33 @@ include::{generated}/validity/structs/VkPhysicalDeviceProvokingVertexFeaturesEXT
 --
 endif::VK_EXT_provoking_vertex[]
 
+ifdef::VK_EXT_conditional_rendering2[]
+[open,refpage='VkPhysicalDeviceConditionalRendering2FeaturesEXT',desc='Structure describing additinal conditional rendering features',type='structs']
+--
+The sname:VkPhysicalDeviceConditionalRendering2FeaturesEXT structure is defined
+as:
+
+include::{generated}/api/structs/VkPhysicalDeviceConditionalRendering2FeaturesEXT.txt[]
+
+This structure describes the following feature:
+
+  * pname:sType is the type of this structure.
+  * pname:pNext is `NULL` or a pointer to a structure extending this
+    structure.
+  * [[features-predicate64Bit]] pname:predicate64Bit indicates
+    whether the implementation supports
+    ename:VK_CONDITIONAL_RENDERING_64_BIT_PREDICATE_BIT_EXT.
+  * [[features-latchedPredicate]] pname:latchedPredicate indicates
+    whether the implementation supports
+    ename:VK_CONDITIONAL_RENDERING_LATCHED_BIT_EXT.
+
+:refpage: VkPhysicalDeviceConditionalRendering2FeaturesEXT
+include::{chapters}/features.txt[tag=features]
+
+include::{generated}/validity/structs/VkPhysicalDeviceConditionalRendering2FeaturesEXT.txt[]
+--
+endif::VK_EXT_conditional_rendering2[]
+
 
 [[features-requirements]]
 == Feature Requirements
